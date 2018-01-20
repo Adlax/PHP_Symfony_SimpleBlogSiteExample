@@ -1,0 +1,50 @@
+<div id="logo" style="position:relative; left:; top:px; width:; height:; border:; background-color:;">
+  <p align="center"> <i> <font align="center" size="6pt" color="red" face="Times New Roman"> GeoStrategika </font> </i> </p>
+</div>
+
+<div style="position:relative; left:; top:px; width:; height:; border:; background-color:;">
+  <p align="center"> <i> <font align="center" color="black" face="Times New Roman"> Humble blog sur les questions strategiques </font></i> </p>
+</div>
+
+<div style="height: 150px">
+  <img src="http://stratinfos.fr/web/images/Bandeau_2.jpg" alt="Bandeau" style="width: 100%;max-height: 100%" />
+</div>
+
+<div class="" style="position:; left:30px; top:10px;">
+  <u><a href="{{ path('hv_blog_homepage') }}" class="btn btn-default">Accueil</a></u> | <u><a href="{{ path('login') }}" class="btn btn-default">Login</a></u> {% if is_granted('ROLE_AUTEUR') %} | <u><a href="{{ path('logout') }}" class="btn btn-default">Logout</a></u> | <u><a href="{{ path('hv_blog_add') }}" class="btn btn-default">Ajouter un billet</a></u> {% endif %}
+</div>
+
+{% block body %}{% endblock %}
+
+<hr class="class1" >
+
+<div style="height:; position:relative; left:; bottom:;">
+  <img src="http://stratinfos.fr/web/images/footer_2.png" alt="footer" style="width: 100%;max-height: 100%" />
+</div>
+
+
+<style type="text/css">
+    html{
+    overflow-x: hidden;
+    background-image: url(http://stratinfos.fr/web/images/fond.png);
+    margin-top:0px;
+    margin-bottom:0px;
+    margin-left:50px;
+    margin-right:50px;
+    }
+    body{
+      background-color: white;
+      /*color: black;
+      padding: 0 10%;
+      margin-top:2px;
+      margin-right:5px;
+      margin-bottom:2em;
+      margin-left:0;
+      /*margin: 50px;*/
+    }
+    hr.class1 {
+    border-top: 1px solid #8c8b8b;
+    border-bottom: 1px solid #fff;
+    border-color: #123455;
+    }
+</style>

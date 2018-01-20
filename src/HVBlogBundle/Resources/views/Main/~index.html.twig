@@ -1,0 +1,22 @@
+{% extends "HVBlogBundle::layout.html.twig" %}
+
+{% block title %} Accueil - {{ parent() }} {% endblock %}
+
+{% block bodylist %}
+
+    <h2> billets récents : </h2>
+
+    {% for billet in listebillets  %}
+        <h4> {{ billet.date|date('d/m/Y') }} {{ billet.titre }} </h4>
+        par {{ billet.auteur }} <br/>
+        {{ billet.contenu }}
+        <hr/>
+    {% endfor %}
+
+    <ul class='pagination'>
+      {% for p in range(1,nbTotPages) %}
+          <li {% if p==page %} class="active" {% endif %}>
+          </li>
+      {% endfor %}
+
+{% endblock %}

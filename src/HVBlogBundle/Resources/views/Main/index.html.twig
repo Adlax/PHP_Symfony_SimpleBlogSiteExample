@@ -1,0 +1,34 @@
+{% extends "HVBlogBundle::layout.html.twig" %}
+
+{% block title %} Accueil - {{ parent() }} {% endblock %}
+
+{% block bodylist %}
+
+    <h2> <u>Billets récents : </u> </h2>
+    <hr class="class1">
+    {% if listebillets is defined %}
+        {% for billet in listebillets  %}
+            <div id="bodylist">
+              <h3> <a href="{{ path('hv_blog_view',{'id':billet.id}) }}">{{ billet.date|date('d/m/Y') }} -- {{ billet.titre }}</a> </h3>
+              par {{ billet.auteur }} : <br/>
+                <div id="sousbodylist">
+                  {{ billet.abstract }}
+                </div>
+            </div>
+            <hr class="class1">
+        {% endfor %}
+    {% else %}
+        Pas de billets!
+    {% endif %}
+    <div>
+        Publications anciennes :
+        <br>
+        <ul class="pagination">
+            {% for p in range(1,nbTotPages) %}
+                <li {% if p==page %} class="active" {% endif %} >
+                  <a id="pagination" href="{{ path('hv_blog_homepage',{'page':p}) }}">{{ p }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

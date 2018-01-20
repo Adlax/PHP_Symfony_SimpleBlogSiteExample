@@ -1,0 +1,21 @@
+hv_blog:
+    resource: "@HVBlogBundle/Resources/config/routing.yml"
+    #type:     annotation
+    prefix:   /blog
+    defaults:
+      page: 1
+
+login:
+    path: /login
+    defaults:
+      _controller:  HVUserBundle:Security:login
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

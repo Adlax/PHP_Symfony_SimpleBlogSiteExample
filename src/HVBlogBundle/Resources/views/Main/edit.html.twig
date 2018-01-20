@@ -1,0 +1,12 @@
+{% extends "HVBlogBundle::layout.html.twig" %}
+
+{% block title %} Modif du billet n°{{ billet.id }} - {{ parent() }} {% endblock %}
+
+{% block bodylist %}
+  <h2>Modification de {{ billet.titre }}</h2>
+  {# ici on va inclure un template #}
+  {{ include("HVBlogBundle:Main:form.html.twig") }}
+  <p>
+    <a href="{{ path('hv_blog_view',{'id':billet.id}) }}">Visualiser l'annonce</a>
+  </p>
+{% endblock %}

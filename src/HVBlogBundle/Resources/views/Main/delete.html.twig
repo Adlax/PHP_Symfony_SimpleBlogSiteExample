@@ -1,0 +1,15 @@
+{% extends "HVBlogBundle::layout.html.twig" %}
+
+{% block title %} Suppression du billet n°{{ billet.id }} - {{ parent() }} {% endblock %}
+
+{% block bodylist %}
+  <h2>Suppression de {{ billet.titre }}</h2>
+  <p>
+    Etes vous sur de vouloir supprimer l'annonce {{ billet.titre }} ?
+  </p>
+  <form action="{{ path('hv_blog_delete',{ 'id':billet.id }) }}" method="post">
+    <a href="{{ path('hv_blog_view',{ 'id':billet.id }) }}" class="btn btn-btn-default"><i class="glyphicon glyphicon-chevron-left"></i>Retour a l annonce </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger"/>
+    {{ form_rest(form) }}
+  </form>
+{% endblock %}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>{% block title %} Infos Strategiques {% endblock %}</title>
+        <meta charset="UTF-8" />
+        {# Lien vers l'image icone du site #}
+        <link rel="shortcut icon" href="http://stratinfos.fr/web/images/logo_2.ico">
+        {% block stylesheets %}
+            {# On charge le CSS de bootstrap depuis le site directement #}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        {% endblock %}
+        <style type="text/css">
+            html{
+            }
+            body{
+              font-size: 200%;
+              font-family: "Courier New", Courier, monospace;
+              letter-spacing:0.15em;
+              overflow-x: hidden;
+              background-image: url(http://stratinfos.fr/web/images/fond.png);
+            }
+            div#page{
+              /* border: 4px double black; */
+              background-color: white;
+              max-width: 900px;
+              min-width: 800px;
+              margin-top:0px;
+              margin-bottom:0px;
+              margin-left:auto;
+              margin-right:auto;
+              padding: 0px;
+            }
+            div#logo_firstline{
+              /* border: 4px solid black; */
+              width: 400px;
+              height: 50px;
+              margin-top:0px;
+              margin-bottom:0px;
+              margin-left:auto;
+              margin-right:auto;
+              padding: 10px;
+              text-align: center;
+              color: red;
+            }
+            div#logo_secondline{
+              /* border: 4px solid black; */
+              width: 800px;
+              height: 70px;
+              margin-top:0px;
+              margin-bottom:0px;
+              margin-left:auto;
+              margin-right:auto;
+              padding: 5px;
+              text-align: center;
+              color: black;
+            }
+            div#bandeau{
+              /* border: 1px solid black; */
+              height: 150px;
+              text-align: center;
+              color: black;
+            }
+            div#bodylist{
+              position: relative;
+              left: 30px;
+            }
+            div#sousbodylist{
+              position: relative;
+              left: 10px;
+            }
+            div.bodylistview_lvl1{
+              /* position:relative; */
+              /* border: 1px solid; */
+              /* left: 30px; */
+            }
+            div.bodylistview_lvl2_1{
+              height:300px;
+              width: 300px;
+              position:relative;
+              left: 30px;
+            }
+            div.bodylistview_lvl2_2{
+              position:relative;
+              left: 350px;
+              top: -300px;
+              max-width: 400px;
+            }
+            div.bodylistview_lvl2_3{
+              position:relative;
+              width: 500px;
+              /*border: 1px solid black;*/
+            }
+            div.bodylistview_lvl2_4{
+              position:relative;
+              /*left: 30px;*/
+              top: -220px;
+              word-wrap: break-word;
+              width: 900px;
+              /* border: 1px solid black; */
+              padding: 5px;
+              /* margin: 10px 10px 10px 10px; */
+              text-align: justify;
+            }
+            a#pagination:hover{
+              background-color: blue;
+              cursor: pointer;
+            }
+            div#footer{
+              border: 1px solid black;
+              height: 100px;
+              text-align: center;
+              color: black;
+              width: 100%;
+              max-height: 100%
+            }
+            hr.class1 {
+              border-top: 1px solid #8c8b8b;
+              border-bottom: 1px solid #fff;
+              border-color: #123455;
+            }
+            ul{
+              width:;
+              padding:;
+              margin:;
+              border-top:;
+              border-bottom:;
+              text-align:;
+            }
+            li{
+              display:inline;
+              margin:0px 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+      <div id="page">
+
+          <div id="logo_firstline">
+            <p class="logo_firstline"> Infos Strategiques </p>
+          </div>
+          <div id="logo_secondline">
+            <p class="logo_secondline"> Humble blog sur les questions liées au strategique ou à l'ordre international </p>
+          </div>
+
+          <div id="bandeau">
+            <img src="http://stratinfos.fr/web/images/bandeau_4.jpeg" alt="Bandeau" style="width: 100%; max-height: 100%"/>
+          </div>
+
+          Date du jour : {{ 'now'|date('d/m/y') }}
+
+          <div id="navigation">
+            <ul id="navigation">
+              <li> <a href="{{ path('hv_blog_homepage') }}" class="btn btn-default">Accueil</a> </li>
+              <li> <a href="{{ path('login') }}" class="btn btn-default">Login</a> </li>
+              {% if is_granted('ROLE_AUTEUR') %}
+              <li> <a href="{{ path('logout') }}" class="btn btn-default">Logout</a> </li>
+              <li> <a href="{{ path('hv_blog_add') }}" class="btn btn-default">Ajouter un billet</a> </li>
+              {% endif %}
+            </ul>
+          </div>
+
+          <hr class="class1"/>
+          <br/>
+          <br/>
+
+          {% block body %}
+          {% endblock %}
+
+          <hr class="class1"/>
+          <br/>
+          <div id="footer">
+            <img src="http://stratinfos.fr/web/images/footer_2.png" alt="footer" style="width: 100%; max-height: 100%" />
+          </div>
+
+      </div>
+    </body>
+</html>

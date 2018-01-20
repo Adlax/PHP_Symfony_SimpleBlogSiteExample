@@ -1,0 +1,12 @@
+{% extends "HVBlogBundle::layout.html.twig" %}
+
+{% block title %} Nouveau billet - {{ parent() }} {% endblock %}
+
+{% block bodylist %}
+  <h2>Creation d'un billet</h2>
+  {# ici on va inclure un template #}
+  {{ include("HVBlogBundle:Main:form.html.twig") }}
+  <p>
+    <a href="{{ path('hv_blog_homepage') }}">Visualiser l'annonce</a>
+  </p>
+{% endblock %}
